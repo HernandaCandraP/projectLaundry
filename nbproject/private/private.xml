@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Kuliah/Netbean/projectLaundry/src/frontend/FrmJenisCucian.java</file>
-            <file>file:/E:/Kuliah/Netbean/projectLaundry/src/frontend/FrmLogin.java</file>
-            <file>file:/E:/Kuliah/Netbean/projectLaundry/src/frontend/FrmPengembalian.java</file>
-            <file>file:/E:/Kuliah/Netbean/projectLaundry/src/frontend/FrmCustomer.java</file>
-            <file>file:/E:/Kuliah/Netbean/projectLaundry/src/frontend/Home.java</file>
-            <file>file:/E:/Kuliah/Netbean/projectLaundry/src/frontend/FrmPenerimaan.java</file>
+            <file>file:/D:/PBO/ProjectLaundry/src/frontend/FrmLogin.java</file>
+            <file>file:/D:/PBO/ProjectLaundry/src/frontend/FrmPengembalian.java</file>
+            <file>file:/D:/PBO/ProjectLaundry/src/frontend/OutputCustomer.java</file>
+            <file>file:/D:/PBO/ProjectLaundry/src/frontend/OutputPengembalian.java</file>
+            <file>file:/D:/PBO/ProjectLaundry/src/frontend/FrmCustomer.java</file>
+            <file>file:/D:/PBO/ProjectLaundry/src/frontend/FrmPenerimaan.java</file>
+            <file>file:/D:/PBO/ProjectLaundry/src/frontend/Home.java</file>
+            <file>file:/D:/PBO/ProjectLaundry/src/frontend/OutputPenerimaan.java</file>
         </group>
     </open-files>
 </project-private>
