@@ -28,12 +28,13 @@ public class FrmPengembalian extends javax.swing.JFrame {
         txtTglKembali.setText("");
         txtBayar.setText("");
         txtKembalian.setText("");
+        txtHarga.setText("");
     }
     
     public void tampilkanData(){
-        String[] kolom = {"ID Transaksi", "No Order", "Tgl Terima", "Tgl Kembali", "Bayar", "Kembalian"};
+        String[] kolom = {"ID Transaksi", "No Order", "Tgl Terima", "Tgl Kembali", "Harga", "Bayar", "Kembalian"};
         ArrayList<pengembalian> list = new pengembalian().getAll();
-        Object rowData[] = new Object[6];
+        Object rowData[] = new Object[7];
         
         tblPengembalian.setModel(new DefaultTableModel(new Object[][] {}, kolom));
         
@@ -42,8 +43,9 @@ public class FrmPengembalian extends javax.swing.JFrame {
             rowData[1] = kat.getPenerimaan().getNoorder();
             rowData[2] = kat.getTglterima();
             rowData[3] = kat.getTglkembali();
-            rowData[4] = kat.getBayar();
-            rowData[5] = kat.getKembalian();
+            rowData[4] = kat.getPenerimaan().getTotal();
+            rowData[5] = kat.getBayar();
+            rowData[6] = kat.getKembalian();
             
             ((DefaultTableModel)tblPengembalian.getModel()).addRow(rowData);
         }
@@ -95,9 +97,7 @@ public class FrmPengembalian extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnSimpan = new javax.swing.JButton();
         btnTambahBaru = new javax.swing.JButton();
-        btnCari = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
-        txtCari = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPengembalian = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -111,6 +111,8 @@ public class FrmPengembalian extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtHarga = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -188,28 +190,12 @@ public class FrmPengembalian extends javax.swing.JFrame {
             }
         });
 
-        btnCari.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Text preview.png"))); // NOI18N
-        btnCari.setText("Cari");
-        btnCari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCariActionPerformed(evt);
-            }
-        });
-
         btnHapus.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/document_delete.png"))); // NOI18N
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
-            }
-        });
-
-        txtCari.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtCari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCariActionPerformed(evt);
             }
         });
 
@@ -286,15 +272,27 @@ public class FrmPengembalian extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cek Penegmbalian");
+        jButton1.setText("Cek Pengembalian");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Harga");
+
+        txtHarga.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtHarga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHargaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel15)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -331,7 +329,8 @@ public class FrmPengembalian extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jButton1)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtKembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(txtKembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(0, 112, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -342,11 +341,14 @@ public class FrmPengembalian extends javax.swing.JFrame {
                         .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCari)
-                        .addGap(84, 84, 84))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,18 +378,20 @@ public class FrmPengembalian extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtKembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTambahBaru)
                     .addComponent(btnSimpan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCari)
                     .addComponent(btnHapus)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -488,14 +492,15 @@ public class FrmPengembalian extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -535,11 +540,6 @@ public class FrmPengembalian extends javax.swing.JFrame {
         kosongkanForm();
     }//GEN-LAST:event_btnTambahBaruActionPerformed
 
-    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-        // TODO add your handling code here:
-        //cari(txtCari.getText());
-    }//GEN-LAST:event_btnCariActionPerformed
-
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)tblPengembalian.getModel();
@@ -550,10 +550,6 @@ public class FrmPengembalian extends javax.swing.JFrame {
         kosongkanForm();
         tampilkanData();
     }//GEN-LAST:event_btnHapusActionPerformed
-
-    private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCariActionPerformed
 
     private void tblPengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPengembalianMouseClicked
          // TODO add your handling code here:
@@ -568,6 +564,7 @@ public class FrmPengembalian extends javax.swing.JFrame {
         txtTglKembali.setText(String.valueOf(pen.getTglkembali()));
         txtBayar.setText(String.valueOf(pen.getBayar()));
         txtKembalian.setText(String.valueOf(pen.getKembalian()));
+        txtHarga.setText(String.valueOf(pen.getPenerimaan().getTotal()));
     }//GEN-LAST:event_tblPengembalianMouseClicked
 
     private void txtBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBayarActionPerformed
@@ -625,6 +622,15 @@ public class FrmPengembalian extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHargaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHargaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -662,7 +668,6 @@ public class FrmPengembalian extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCari;
     private javax.swing.JButton btnCariCus;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnSimpan;
@@ -680,6 +685,7 @@ public class FrmPengembalian extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -691,7 +697,7 @@ public class FrmPengembalian extends javax.swing.JFrame {
     private javax.swing.JLabel labelNoOrder;
     private javax.swing.JTable tblPengembalian;
     private javax.swing.JTextField txtBayar;
-    private javax.swing.JTextField txtCari;
+    private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtIdTransaksi;
     private javax.swing.JTextField txtKembalian;
     private javax.swing.JTextField txtNoOrder;

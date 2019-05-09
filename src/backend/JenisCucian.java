@@ -48,6 +48,25 @@ public class JenisCucian {
         return kat;
     }
     
+        public JenisCucian getByNama(String jenis){
+        JenisCucian kat = new JenisCucian();
+        ResultSet rs = DBHelper.selectQuery("SELECT * FROM jeniscucian"
+                + " WHERE jeniscucian = '" +jenis+ "'");
+        
+        try{
+            while(rs.next()){
+                kat = new JenisCucian();
+                kat.setIdJenis(rs.getInt("idjenis"));
+                kat.setJenisCucian(rs.getString("jeniscucian"));
+                kat.setHarga(rs.getInt("harga"));
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return kat;
+    }
+    
     public ArrayList<JenisCucian> getAll(){
         ArrayList<JenisCucian> ListJenis = new ArrayList();
         String keyword = null;

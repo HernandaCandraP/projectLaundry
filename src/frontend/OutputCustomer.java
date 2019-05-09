@@ -75,6 +75,7 @@ String id;
         jScrollPane1.setViewportView(TextTampilan);
 
         txtcetak.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtcetak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Print.png"))); // NOI18N
         txtcetak.setText("Cetak");
         txtcetak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +89,7 @@ String id;
         textId.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         txtcari.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtcari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Text preview.png"))); // NOI18N
         txtcari.setText("Cari");
         txtcari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +98,7 @@ String id;
         });
 
         Kembali.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout.png"))); // NOI18N
         Kembali.setText("Kembali");
         Kembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,9 +126,9 @@ String id;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textId, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtcari, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtcari)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
