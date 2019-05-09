@@ -61,6 +61,8 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(0, 153, 255));
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo Laundry amanda.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
