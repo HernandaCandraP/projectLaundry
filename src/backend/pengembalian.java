@@ -184,8 +184,6 @@ public class pengembalian {
                     + " kembalian = " + this.kembalian + ""
                     + " WHERE idtransaksi = "+this.idtransaksi+""; 
             DBHelper.executeQuery(sql);
-            System.out.println(sql);
-            System.out.println(a);
         }
     }
     
@@ -198,6 +196,17 @@ public class pengembalian {
                 getCus().setNama(rs.getString("nama"));
 //                getPenerimaan().setNoorder(rs.getInt("noorder"));
 //                getPenerimaan().setKeterangan(rs.getString("keterangan"));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void cariHarga(int id){
+        ResultSet rs = DBHelper.selectQuery("Select total from penerimaan where noorder = '" + id + "'");
+        try{
+            while(rs.next()){
+                getPenerimaan().setTotal(rs.getInt("total"));
             }
         }catch(Exception e){
             e.printStackTrace();

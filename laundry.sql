@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2019 at 07:45 AM
+-- Generation Time: May 11, 2019 at 04:46 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -40,9 +40,10 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`idcus`, `nama`, `alamat`, `telp`) VALUES
-(1, 'Hernandaaa', 'Trengalek', '0838464344'),
+(1, 'Hernandaaa', 'Trenggalek', '0838464344'),
 (2, 'Alfarizi', 'Malang', '0838364'),
-(3, 'deon', 'Landungsari', '087777');
+(3, 'deon', 'Landungsari', '087777'),
+(4, 'Wildan', '-', '-');
 
 -- --------------------------------------------------------
 
@@ -76,6 +77,14 @@ CREATE TABLE `login` (
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`username`, `password`) VALUES
+('Hernanda', 'hernanda'),
+('Alfarizi', 'alfarizi');
+
 -- --------------------------------------------------------
 
 --
@@ -96,8 +105,8 @@ CREATE TABLE `penerimaan` (
 --
 
 INSERT INTO `penerimaan` (`noorder`, `idcus`, `idjenis`, `berat`, `total`, `keterangan`) VALUES
-(2, 2, 1, 10, 90, 'baju. celanaa'),
-(3, 1, 2, 91, 8880000, 'ket');
+(2, 2, 1, 10, 75750, 'baju. celanaa'),
+(3, 1, 4, 1, 7000, 'ket');
 
 -- --------------------------------------------------------
 
@@ -119,8 +128,9 @@ CREATE TABLE `pengembalian` (
 --
 
 INSERT INTO `pengembalian` (`idtransaksi`, `noorder`, `tglterima`, `tglkembali`, `bayar`, `kembalian`) VALUES
-(1, 3, '2019-04-23', '2019-04-27', 7, 1000),
-(5, 2, '2019-04-10', '2019-04-10', 987, 0);
+(1, 3, '2019-04-23', '2019-04-27', 8000, 1000),
+(5, 2, '2019-04-10', '2019-04-10', 987, 0),
+(6, 3, '1111-11-11', '2011-11-11', 32, 0);
 
 --
 -- Indexes for dumped tables
@@ -161,7 +171,7 @@ ALTER TABLE `pengembalian`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `idcus` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idcus` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jeniscucian`
@@ -179,7 +189,7 @@ ALTER TABLE `penerimaan`
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `idtransaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idtransaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
