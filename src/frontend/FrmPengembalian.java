@@ -50,26 +50,7 @@ public class FrmPengembalian extends javax.swing.JFrame {
             ((DefaultTableModel)tblPengembalian.getModel()).addRow(rowData);
         }
     }
-    
-//    public void cari(String keyword){
-//        String[] kolom = {"ID Transaksi", "No Order", "Tgl Terima", "Tgl Kembali", "Bayar", "Kembalian"};
-//        ArrayList<pengembalian> list = new pengembalian().search(keyword);
-//        Object rowData[] = new Object[6];
-//        
-//        tblPenerimaan.setModel(new DefaultTableModel(new Object[][] {}, kolom));
-//        
-//        for(Penerimaan kat : list){
-//            rowData[0] = kat.getNoorder();
-//            rowData[1] = kat.getCus().getIdCus();
-//            rowData[2] = kat.getCus().getNama();
-//            rowData[3] = kat.getJenis().getJenisCucian();
-//            rowData[4] = kat.getBerat();
-//            rowData[5] = kat.getTotal();
-//            rowData[6] = kat.getKeterangan();
-//            
-//            ((DefaultTableModel)tblPenerimaan.getModel()).addRow(rowData);
-//        }
-//    }
+
 
     public void FrmKategori(){
         initComponents();

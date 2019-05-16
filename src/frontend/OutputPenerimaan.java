@@ -70,7 +70,7 @@ String id;
         jLabel1.setBounds(160, 10, 550, 48);
 
         TextTampilan.setColumns(20);
-        TextTampilan.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        TextTampilan.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         TextTampilan.setRows(5);
         jScrollPane1.setViewportView(TextTampilan);
 
@@ -189,18 +189,21 @@ String id;
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         
         if (rs.next()){
-            TextTampilan.setText("          **** No Order Laundry Amanda ****"+
-                "\n=========================================" + "\n" 
-                + "              No Order             : " + rs.getString(1)+ "\n" 
-                + "              ID Customer                        : " + rs.getString(2)+ "\n" 
-                + "              ID Jenis                      : " + rs.getString(3)+ "\n"
-                + "              Berat              : " + rs.getString(4)+ "\n"
-                + "              Total              : " + rs.getString(5)+ "\n"        
-                + "              Keterangan              : " + rs.getString(6)+ "\n" 
+            TextTampilan.setText("               **** Laundry Amanda ****"
+                    + "\n        Jl. Kyai Parseh Jaya Rt 11 Rw 01 Bumiayu"
+                    + "\n                Kedungkandang Malang"
+                    + "\n               call/sms : 085933116073"+
+                "\n==================================================" + "\n" 
+                +"Cetak Nomor Order :"+ "\n"
+                + "              No Order      : " + rs.getString(1)+ "\n" 
+                + "              ID Customer   : " + rs.getString(2)+ "\n" 
+                + "              ID Jenis      : " + rs.getString(3)+ "\n"
+                + "              Berat         : " + rs.getString(4)+ "\n"
+                + "              Total         : " + rs.getString(5)+ "\n"        
+                + "              Keterangan    : " + rs.getString(6)+ "\n" 
                         +      
-                "\n========================================="+
-                "\n    ????,"+
-                "\n    ????"+
+                "\n=================================================="+
+                "\n       Terima Kasih Atas Kepercayaan Anda"+
                 "\n");
         }else{
             JOptionPane.showMessageDialog(null,"Data tidak ditemukan");

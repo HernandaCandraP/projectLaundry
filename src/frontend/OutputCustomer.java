@@ -67,10 +67,10 @@ String id;
         jLabel1.setText("Cetak Data Customer");
         jLabel1.setToolTipText("");
         jDesktopPane1.add(jLabel1);
-        jLabel1.setBounds(170, 10, 470, 48);
+        jLabel1.setBounds(110, 10, 470, 48);
 
         TextTampilan.setColumns(20);
-        TextTampilan.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        TextTampilan.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         TextTampilan.setRows(5);
         jScrollPane1.setViewportView(TextTampilan);
 
@@ -84,7 +84,7 @@ String id;
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Id Penumpang");
+        jLabel2.setText("Id Customer");
 
         textId.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -114,12 +114,8 @@ String id;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(txtcetak, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtcetak, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel2)
@@ -130,6 +126,10 @@ String id;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +152,10 @@ String id;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,16 +193,19 @@ String id;
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
             if (rs.next()){
-                TextTampilan.setText("          **** Kartu Customer Laundry Amanda ****"+
-                    "\n=========================================" + "\n"
-                    + "              ID Customer             : " + rs.getString(1)+ "\n"
-                    + "              Nama                        : " + rs.getString(2)+ "\n"
-                    + "              Alamat                      : " + rs.getString(3)+ "\n"
-                    + "              NO Telepon              : " + rs.getString(4)+ "\n"
+                TextTampilan.setText("              **** Laundry Amanda ****"
+                    + "\n        Jl. Kyai Parseh Jaya Rt 11 Rw 01 Bumiayu"
+                    + "\n                Kedungkandang Malang"
+                    + "\n               call/sms : 085933116073"+
+                    "\n==================================================" + "\n"
+                    + "Cetak Kartu Customer :\n"
+                    + "          ID Customer   : " + rs.getString(1)+ "\n"
+                    + "          Nama          : " + rs.getString(2)+ "\n"
+                    + "          Alamat        : " + rs.getString(3)+ "\n"
+                    + "          NO Telepon    : " + rs.getString(4)+ "\n"
                     +
-                    "\n========================================="+
-                    "\n    ????,"+
-                    "\n    ????"+
+                    "\n=================================================="+
+                    "\n         Terima Kasih Atas Kepercayaan Anda"+
                     "\n");
             }else{
                 JOptionPane.showMessageDialog(null,"Data tidak ditemukan");
