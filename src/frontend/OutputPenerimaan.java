@@ -67,7 +67,7 @@ String id;
         jLabel1.setText("Cetak Data Penerimaan");
         jLabel1.setToolTipText("");
         jDesktopPane1.add(jLabel1);
-        jLabel1.setBounds(160, 10, 550, 48);
+        jLabel1.setBounds(110, 10, 550, 48);
 
         TextTampilan.setColumns(20);
         TextTampilan.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N

@@ -186,9 +186,7 @@ String id;
     }//GEN-LAST:event_KembaliActionPerformed
 
     private void txtcariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcariActionPerformed
-
         try{
-
             ResultSet rs = DBHelper.selectQuery("SELECT * from Customer WHERE idcus = '" +textId.getText()+ "'");
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 

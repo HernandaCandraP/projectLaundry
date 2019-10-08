@@ -99,6 +99,9 @@ public class Customer {
     
     public void save(){
         if(getById(idcus).getIdCus() == 0){
+            
+            System.out.println("costumer baru");
+            
             String SQL = "INSERT INTO customer (nama, alamat, telp) VALUES("
                     +"  '" +this.nama+ "',"
                     +"  '" +this.alamat+ "',"
@@ -107,6 +110,9 @@ public class Customer {
             this.idcus = DBHelper.insertQueryGetId(SQL);
         }
         else{
+            
+            System.out.println("customer yang sudah ada");
+            
             String SQL = "UPDATE customer SET"
                     +"  nama = '" +this.nama+ "',"
                     +"  alamat = '" +this.alamat+ "',"
